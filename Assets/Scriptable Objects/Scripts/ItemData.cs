@@ -15,7 +15,7 @@ public enum ConsumableType  //소모되면서 적용될 컨디션이 무엇인지.
     Health
 }
 
-[System.Serializable]
+[System.Serializable]   //유니티에 나타나게 하기.
 public class ItemDataConsumable
 {
     public ConsumableType type;
@@ -37,8 +37,8 @@ public class ItemData : ScriptableObject
     public bool canStack;
     public int maxStackAmount;
 
-    [Header("Consumable")]
-    public ItemDataConsumable[] consumables;
+    [Header("Consumable")] //어떤 아이템 데이터에서 어떤 타입의 능력치를 줄 것인가 설정. 
+    public ItemDataConsumable[] consumables;    
 
 }
 

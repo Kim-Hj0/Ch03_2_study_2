@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 mouseDelta; //¹Î°¨µµ ¼³Á¤.
 
     [HideInInspector]
-    public bool canLook = true;
+    public bool canLook = true; //Ä¿¼­ ¾È¾¸.
 
     private Rigidbody _rigidbody;
 
