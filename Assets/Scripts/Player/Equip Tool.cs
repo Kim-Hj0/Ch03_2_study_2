@@ -40,4 +40,22 @@ public class EquipTool : Equip
     }
 
 
+    public void OnHit()
+    {
+        Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, attackDistance))  //실제로 쏘게 될거고.
+        {
+            if (doesGatherResources && hit.collider.TryGetComponent(out Resource resouce))  //내가 공격하는 타이밍에 누군가가 있을텐데, 부딪힌 얘한테서 리소스 가져와.
+            {
+                resouce.Gather(hit.point, hit.normal);  //있으면 가져와달라.(아이템)
+            }
+
+            if (doesDealDamage && hit.collider.TryGetComponent(out IDamagable damageable))  
+            {
+                damageable.TakePhysicalDamage(damage);
+            }
+        }
+    }
 }
