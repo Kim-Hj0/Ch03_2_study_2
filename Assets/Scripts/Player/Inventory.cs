@@ -218,17 +218,32 @@ public class Inventory : MonoBehaviour
 
     public void OnEquipButton()
     {
+        if (uiSlots[curEquipIndex].equipped) //현재 끼고있는 얘. 끼고있는 얘가 equipped이라면,
+        {
+            UnEquip(curEquipIndex);
+        }
 
+        uiSlots[selectedItemIndex].equipped = true;
+        curEquipIndex = selectedItemIndex;
+        EquipManager.instance.EquipNew(selectedItem.item);  //선택한 걸로 장착하기.
+        UpdateUI();
+
+        SelectItem(selectedItemIndex);  //선택된 걸로 설정도 해주고.
     }
 
-    void UnEquip(int index)
+    void UnEquip(int index) 
     {
+        uiSlots[index].equipped = false;
+        EquipManager.instance.UnEquip();
+        UpdateUI();
 
+        if (selectedItemIndex == index)   //고른 아이템이
+            SelectItem(index);
     }
 
-    public void OnUnEquipButton()
+    public void OnUnEquipButton() //지금 차고 있는 거에대한.
     {
-
+        UnEquip(curEquipIndex);
     }
 
     public void OnDropButton()

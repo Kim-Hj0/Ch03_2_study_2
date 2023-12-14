@@ -38,7 +38,11 @@ public class ItemData : ScriptableObject
     public int maxStackAmount;
 
     [Header("Consumable")] //어떤 아이템 데이터에서 어떤 타입의 능력치를 줄 것인가 설정. 
-    public ItemDataConsumable[] consumables;    
+    public ItemDataConsumable[] consumables;
+
+    [Header("Equip")]   //무기
+    public GameObject equipPrefab;
+
 
 }
 
