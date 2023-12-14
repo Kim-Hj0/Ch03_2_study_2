@@ -17,7 +17,7 @@
                 {
                     "name": "Attack",
                     "type": "Button",
-                    "id": "79369129-a555-4da3-bb1c-e5b683af0f91",
+                    "id": "19a354c2-4656-4b61-b4b1-747bcc54470c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -118,17 +118,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4cd82e2b-29c5-465d-9903-c63e2b38e7e4",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b7afb827-8439-4a8f-a9c7-a6f5d9cad401",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -168,6 +157,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d75fdd97-278e-4cc5-8746-8275d31856b4",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

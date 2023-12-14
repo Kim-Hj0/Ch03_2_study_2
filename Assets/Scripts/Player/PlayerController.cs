@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -72,7 +73,8 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
     }
 
-    public void OnLookInput(InputAction.CallbackContext context)    //화면(시선)
+
+    public void OnLookInput(InputAction.CallbackContext context)     //화면(시선)
     {
         mouseDelta = context.ReadValue<Vector2>();
     }
@@ -89,9 +91,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnJumpInput(InputAction.CallbackContext context)    //점프
+    public void OnJumpInput(InputAction.CallbackContext context)   //점프
     {
-        if (context.phase == InputActionPhase.Started)  
+        if (context.phase == InputActionPhase.Started)
         {
             if (IsGrounded())
                 _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse); //질량을 가지고서 처리하는 것.
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
             new Ray(transform.position + (transform.forward * 0.2f) + (Vector3.up * 0.01f) , Vector3.down),
             new Ray(transform.position + (-transform.forward * 0.2f)+ (Vector3.up * 0.01f), Vector3.down),
             new Ray(transform.position + (transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
-            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),   //충돌을 하는지 체크
+            new Ray(transform.position + (-transform.right * 0.2f) + (Vector3.up * 0.01f), Vector3.down),
         };
 
         for (int i = 0; i < rays.Length; i++)   //선형으로 이어져있는 아이들은Length, List처럼 뜨문뜨문인 얘들이 count
