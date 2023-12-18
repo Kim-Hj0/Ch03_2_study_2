@@ -29,7 +29,7 @@ public class NPC : MonoBehaviour, IDamagable
 
     [Header("Wandering")]
     public float minWanderDistance;
-    public float maxWanderDistance;
+    public float maxWanderDistance; //방황할 최대 거리.
     public float minWanderWaitTime;
     public float maxWanderWaitTime;
 
